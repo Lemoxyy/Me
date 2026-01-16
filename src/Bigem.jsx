@@ -27,7 +27,7 @@ export default function Bigem({ darkMode, setDarkMode }) {
     }
   };
 
-  const openWebsite = () => navigate("/website"); // route to website
+  const openWebsite = () => navigate("/me"); // route to website
 
   const contact = () => (window.location.href = "mailto:example@email.com");
 
