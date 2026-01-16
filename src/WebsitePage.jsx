@@ -5,7 +5,7 @@ export default function WebsitePage({ darkMode }) {
 
   return (
     <div
-      className="min-h-screen flex flex-col"
+      className="relative min-h-screen bg-white dark:bg-gray-900"
       style={{ backgroundColor: darkMode ? "#2c2c2c" : "#ffffff" }}
     >
       {/* Cross button */}
@@ -21,11 +21,11 @@ export default function WebsitePage({ darkMode }) {
       <iframe
         src="https://lemoxyy.github.io/Bigem-Shrestha/"
         title="Me"
-        className="flex-1 w-full"
+        className="w-full h-screen"
         style={{
           border: "none",
-          minHeight: "100vh",
           backgroundColor: darkMode ? "#2c2c2c" : "#ffffff",
+          height: window.innerHeight,
         }}
       />
     </div>
