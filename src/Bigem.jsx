@@ -1,15 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ProfilePic from "./assets/logo.jpg"; // <-- put your image here
+import ProfilePic from "./assets/logo.jpg"; // Static profile image
 
 export default function Bigem({ darkMode, setDarkMode }) {
-  const [image, setImage] = useState(ProfilePic); // default image
   const navigate = useNavigate();
-
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    if (file) setImage(URL.createObjectURL(file));
-  };
 
   const toggleTheme = () => setDarkMode(!darkMode);
 
@@ -22,8 +16,10 @@ export default function Bigem({ darkMode, setDarkMode }) {
     if (navigator.share)
       navigator.share(shareData).catch(() => alert("Link copied!"));
     else {
-      navigator.clipboard.writeText(shareData.url);
-      alert("Link copied to clipboard!");
+      navigator.clipboard
+        .writeText(shareData.url)
+        .then(() => alert("Link copied to clipboard!"))
+        .catch(() => alert("Failed to copy link."));
     }
   };
 
@@ -75,7 +71,7 @@ export default function Bigem({ darkMode, setDarkMode }) {
       {/* Centered card */}
       <div className="min-h-screen flex justify-center items-center relative z-10">
         <div
-          className="w-[480px] rounded-3xl p-10 transition-all duration-300 hover:-translate-y-1"
+          className="w-full max-w-md rounded-3xl p-10 transition-all duration-300 hover:-translate-y-1"
           style={{
             backgroundColor: darkMode ? "#3a3a3a" : "#ffffff",
             boxShadow: "0 15px 35px rgba(0,0,0,0.18)",
@@ -86,31 +82,13 @@ export default function Bigem({ darkMode, setDarkMode }) {
 
           {/* Profile Image */}
           <div className="flex flex-col items-center mb-6">
-            <label className="cursor-pointer">
-              <div className="w-32 h-32 rounded-full bg-gray-300 overflow-hidden flex items-center justify-center text-gray-600">
-                {image ? (
-                  <img
-                    src={image}
-                    alt="profile"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  "Upload"
-                )}
-              </div>
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={handleImageUpload}
+            <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center">
+              <img
+                src={ProfilePic}
+                alt="Profile"
+                className="w-full h-full object-cover"
               />
-            </label>
-            <span
-              className="text-sm mt-2"
-              style={{ color: darkMode ? "#f5f5dc" : "#6b7280" }}
-            >
-              Click to change profile image
-            </span>
+            </div>
           </div>
 
           {/* About */}
