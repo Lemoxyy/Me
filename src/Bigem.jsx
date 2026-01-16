@@ -25,7 +25,8 @@ export default function Bigem({ darkMode, setDarkMode }) {
 
   const openWebsite = () => navigate("/me"); // route to website
 
-  const contact = () => (window.location.href = "mailto:example@email.com");
+  const contact = () =>
+    (window.location.href = "mailto:bigemshrestha0@gmail.com");
 
   return (
     <div
