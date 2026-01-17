@@ -13,7 +13,7 @@ export default function WebsitePage({ darkMode }) {
       <button
         onClick={() => navigate("/")}
         className={`absolute top-4 right-4 text-2xl font-bold p-2 rounded-full transition
-          ${darkMode ? "text-[#f5f5dc] hover:bg-gray-700" : "text-gray-900 hover:bg-gray-200"}
+          ${darkMode ? "text-[#FFFFFF] hover:bg-gray-700" : "text-gray-900 hover:bg-gray-200"}
         `}
         aria-label="Close"
       >
