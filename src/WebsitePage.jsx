@@ -25,7 +25,6 @@ export default function WebsitePage({ darkMode }) {
         style={{
           border: "none",
           backgroundColor: darkMode ? "#2c2c2c" : "#ffffff",
-          height: window.innerHeight,
         }}
       />
     </div>
