@@ -13,7 +13,7 @@ export default function App() {
           path="/"
           element={<Bigem darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
-        <Route path="/website" element={<WebsitePage darkMode={darkMode} />} />
+        <Route path="/me" element={<WebsitePage darkMode={darkMode} />} />
       </Routes>
     </Router>
   );
