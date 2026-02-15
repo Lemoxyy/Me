@@ -11,6 +11,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // Importing your custom components
 import Bigem from "./Bigem";
 import WebsitePage from "./WebsitePage";
+import Home from "./Home";
+
 
 export default function App() {
 
@@ -35,7 +37,7 @@ export default function App() {
           path="/"
           element={<Bigem darkMode={darkMode} setDarkMode={setDarkMode} />}
         />
-
+        <Route path="/" element={<Home />} />
         {/* 
           When the path is "/me", 
           render WebsitePage component 
